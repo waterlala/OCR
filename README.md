@@ -6,15 +6,13 @@
 # Detect Exposure
 Detect exposure of an image. If it passes, then return True, else False.
 
-### Input
-image (type = GRAY)
-type
- - type = string
- - default = 'None'
-### Output
-boolean
+### Parameters:
+- __image__ : numpy.ndarray, image type is gray, default : None
+- __type__ : string, default : None, could be : None, 401, 403, BS, IS.
+### Returns:
+- __boolean__
 
-### Use Example
+### Use Example:
 
 ```sh
 import cv2 as cv
@@ -28,10 +26,10 @@ pass = detectExposure.fit() #pass = True or False
 # Correct Exposure
 correct exposure of an image.
 
-### Input
-image (type = GRAY)
-### Output
-image (type = GRAY)
+### Parameters
+- __image__ : numpy.ndarray, image type is gray, default : None
+### Returns
+- __image__ : numpy.ndarray, image type is gray
 
 ### Use Example
 
