@@ -3,7 +3,7 @@
  - opencv-python (>=4.3.0.36)
  - numpy (>= 1.19.1)
  - pandas (>= 1.1.0)
-# Main Function
+# Detect Exposure
 Detect exposure of an image. If it passes, then return True, else False.
 
 ### Input
