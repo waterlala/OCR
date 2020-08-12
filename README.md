@@ -8,6 +8,9 @@ Detect exposure of an image. If it passes, then return True, else False.
 
 ### Input
 image (type = GRAY)
+type
+ - type = string
+ - default = 'None'
 ### Output
 boolean
 
