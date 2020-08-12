@@ -14,7 +14,7 @@ BLURRY_SIZE = 21
 #高斯模糊係數
 BLURRY_SIGMA = 9
 
-class ExposureImage:
+class CorrectExposure:
 
     """
 
@@ -23,10 +23,6 @@ class ExposureImage:
     Input：image, type : gray
 
     Ouput：image, type : gray
-
-    Example：
-    ex = ExposureImage(image)
-    image = ex.fit()
 
     """
 

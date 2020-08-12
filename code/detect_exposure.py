@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 import pandas as pd
-from exposure_image import ExposureImage
+from correct_exposure import CorrectExposure
 
 """設定計算光影差異量參數"""
 
@@ -57,11 +57,6 @@ class DetectExposure:
     Input：image, type : gray
     
     Ouput：boolean
-
-    Example：
-
-    de = DetectExposure(image)
-    if(de.fit() == True):
 
     """
 
@@ -169,8 +164,8 @@ class DetectExposure:
         # 更新圖片型態
         image = self.clear_image_type(image)
         # 光影處理
-        ex = ExposureImage(image)
-        image = ex.fit()
+        ce = CorrectExposure(image)
+        image = ce.fit()
         # 均值位移
         image = self.mid(image)
         # 更新圖片型態

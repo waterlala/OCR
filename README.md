@@ -34,7 +34,7 @@ image (type = GRAY)
 
 ```sh
 import cv2 as cv
-from exposure_image import ExposureImage
+from correct_exposure import CorrectExposure
 
 img = cv.imread(path, cv.IMREAD_GRAYSCALE) #read image
 exposureImage = ExposureImage(img)
