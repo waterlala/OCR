@@ -14,7 +14,7 @@ Detect exposure of an image. If it passes, then return True, else False.
 
 ### Use Example:
 
-```sh
+```python
 import cv2 as cv
 from detect_exposure import DetectExposure
 
@@ -33,7 +33,7 @@ correct exposure of an image.
 
 ### Use Example
 
-```sh
+```python
 import cv2 as cv
 from correct_exposure import CorrectExposure
 
