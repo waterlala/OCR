@@ -22,7 +22,7 @@ detectExposure = DetectExposure(img)
 pass = detectExposure.fit() #pass = True or False
 ```
 
-# Exposure Correction
+# Correct Exposure
 correct exposure of an image.
 
 ### Input
