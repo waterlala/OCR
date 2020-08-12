@@ -21,3 +21,22 @@ img = cv.imread(path, cv.IMREAD_GRAYSCALE) #read image
 detectExposure = DetectExposure(img)
 pass = detectExposure.fit() #pass = True or False
 ```
+
+# Exposure Correction
+correct exposure of an image.
+
+### Input
+image (type = GRAY)
+### Output
+image (type = GRAY)
+
+### Use Example
+
+```sh
+import cv2 as cv
+from exposure_image import ExposureImage
+
+img = cv.imread(path, cv.IMREAD_GRAYSCALE) #read image
+exposureImage = ExposureImage(img)
+correct_img = exposureImage.fit()
+```
