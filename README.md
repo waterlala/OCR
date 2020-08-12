@@ -37,6 +37,6 @@ import cv2 as cv
 from correct_exposure import CorrectExposure
 
 img = cv.imread(path, cv.IMREAD_GRAYSCALE) #read image
-exposureImage = ExposureImage(img)
-correct_img = exposureImage.fit()
+correctExposure = CorrectExposure(img)
+correct_img = correctExposure.fit()
 ```
