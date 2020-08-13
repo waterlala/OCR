@@ -60,13 +60,12 @@ class DetectExposure:
 
     """
 
-    def __init__(self, input_image):
-        """
-        初始化
-        """
-
+    def __init__(self, input_image, input_type = 'None'):
         """輸入圖片"""
         self.image = input_image
+
+        """圖片型態"""
+        self.type = input_type
 
         """光影差異量"""
         self.amount_of_different_light = 0
@@ -77,7 +76,7 @@ class DetectExposure:
         """灰階占整張圖的比例"""
         self.ratio_of_gray_to_image = 0
 
-    def fit(self, input_type='None'):
+    def fit(self):
         """
         處理，輸入參數為image的型態，如401, 403, BS(資產負債表), IS(損益及稅額計算表)
         """
@@ -89,26 +88,10 @@ class DetectExposure:
         # 判斷光影差異是否通過
         is_amount_of_different_light = self.judge_amount_of_different_light()
         # 判斷文字亮度是否通過
-        is_word_light = self.judge_word_light(input_type)
+        is_word_light = self.judge_word_light(self.type)
         # 判斷是否通過
         is_pass = is_amount_of_different_light and is_word_light
         return is_pass
-
-    def fit_401(self):
-        """處理401圖片"""
-        self.fit('401')
-
-    def fit_403(self):
-        """處理403圖片"""
-        self.fit('403')
-
-    def fit_BS(self):
-        """處理資產負債表圖片"""
-        self.fit('BS')
-
-    def fit_IS(self):
-        """處理損益及稅額計算表"""
-        self.fit('IS')
 
     def judge_amount_of_different_light(self):
         """判斷光影差異量是否通過"""

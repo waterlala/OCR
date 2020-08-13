@@ -12,7 +12,10 @@ Detect exposure of an image. If it passes, then return True, else False.
 ### Returns:
 - __boolean__
 
-### Use Example:
+### Methods:
+- __fit__()
+
+### Examples:
 
 ```python
 import cv2 as cv
@@ -31,7 +34,10 @@ correct exposure of an image.
 ### Returns
 - __image__ : numpy.ndarray, image type is gray
 
-### Use Example
+### Methods:
+- __fit__()
+
+### Examples
 
 ```python
 import cv2 as cv
