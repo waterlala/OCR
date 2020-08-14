@@ -50,36 +50,26 @@ WL_IS_GRAY_THRESHOLD = 0.0368
 
 
 class DetectExposure:
-
-    """
-    detect exposure, If image pass, return True, else return False.
-
-    Input：image, type : gray
-    
-    Ouput：boolean
-
-    """
-
     def __init__(self, input_image, input_type = 'None'):
-        """輸入圖片"""
+        """初始化"""
+
+        #輸入圖片
         self.image = input_image
 
-        """圖片型態"""
+        #圖片型態
         self.type = input_type
 
-        """光影差異量"""
+        #光影差異量
         self.amount_of_different_light = 0
 
-        """背景占整張圖的比例"""
+        #背景占整張圖的比例
         self.ratio_of_background_to_image = 0
 
-        """灰階占整張圖的比例"""
+        #灰階占整張圖的比例
         self.ratio_of_gray_to_image = 0
 
     def fit(self):
-        """
-        處理，輸入參數為image的型態，如401, 403, BS(資產負債表), IS(損益及稅額計算表)
-        """
+        """處理，輸入參數為image的型態，如401, 403, BS(資產負債表), IS(損益及稅額計算表)"""
 
         # 取得光影差異量
         self.detect_amount_of_different_light()
@@ -102,6 +92,7 @@ class DetectExposure:
 
     def judge_word_light(self, input_type):
         """判斷文字亮度是否通過"""
+
         if input_type == 'None':
             return self.judge_word_light_threshold(WL_ALL_BACKGROUND_THRESHOLD, WL_ALL_GRAY_THRESHOLD)
         elif input_type == '401':
@@ -115,6 +106,7 @@ class DetectExposure:
 
     def judge_word_light_threshold(self, ratio_of_background_to_image_threshold, ratio_of_gray_to_image_threshold):
         """判斷參數"""
+
         if self.ratio_of_background_to_image >= ratio_of_background_to_image_threshold and self.ratio_of_gray_to_image >= ratio_of_gray_to_image_threshold:
             return False
         else:
@@ -122,6 +114,7 @@ class DetectExposure:
 
     def detect_amount_of_different_light(self):
         """偵測光影差異量"""
+
         # load照片
         image = self.image.copy()
         # 更新圖片型態
@@ -142,6 +135,7 @@ class DetectExposure:
 
     def detect_word_light(self):
         """偵測文字亮度"""
+
         # load照片
         image = self.image.copy()
         # 更新圖片型態
@@ -149,8 +143,6 @@ class DetectExposure:
         # 光影處理
         ce = CorrectExposure(image)
         image = ce.fit()
-        # 均值位移
-        image = self.mid(image)
         # 更新圖片型態
         image = self.clear_image_type(image)
         # 切割圖片
@@ -174,6 +166,7 @@ class DetectExposure:
 
     def cut_image(self, input_image, input_range):
         """切割圖片"""
+
         image_df = pd.DataFrame(
             columns=['image', 'start_x', 'end_x', 'start_y', 'end_y'])
         for i in range(input_range):
@@ -188,12 +181,14 @@ class DetectExposure:
 
     def clear_image_type(self, input_image):
         "更新圖片型態"
+
         input_image = np.round(input_image)
         input_image = input_image.astype(np.uint8)
         return input_image
 
     def mid(self, image):
         "將圖片平均值移動到灰階的中間值 = 256/2"
+        
         image_mean = image.mean()
         image = image - (image_mean - 256/2)
         image[image > 255] = 255
