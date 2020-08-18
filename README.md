@@ -31,6 +31,8 @@ correct exposure of an image.
 
 ### Parameters
 - __image__ : numpy.ndarray, image type is gray, default : None
+- __times__ : int, fit x times, default : 10
+
 ### Returns
 - __image__ : numpy.ndarray, image type is gray
 
