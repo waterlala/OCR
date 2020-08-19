@@ -6,6 +6,8 @@
 # Detect Exposure
 Detect exposure of an image. If it passes, then return True, else False.
 
+### Dependencies:
+ - CorrectExposure
 ### Parameters:
 - __image__ : numpy.ndarray, image type is gray, default : None
 - __type__ : string, default : None, could be : None, 401, 403, BS, IS.
