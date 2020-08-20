@@ -1,7 +1,7 @@
-from cv2 import cv2 as cv 
+import cv2 as cv 
 import numpy as np
 import pandas as pd
-from Reports.Utilites.ocr.DetectImage.correct_exposure import CorrectExposure
+from correct_exposure import CorrectExposure
 
 """設定計算光影差異量參數"""
 
