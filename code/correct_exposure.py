@@ -15,7 +15,7 @@ BLURRY_SIGMA = 9
 
 
 class CorrectExposure:
-    def __init__(self, input_image, input_times = 10):
+    def __init__(self, input_image, input_times = 3):
         """初始化"""
 
         #輸入圖片

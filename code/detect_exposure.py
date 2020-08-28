@@ -28,6 +28,7 @@ WL_BACKGROUND_THRESHOLD = 40
 WL_GRAY_MAX = 85
 WL_GRAY_MIN = 40
 
+
 # 統一亮度閥值
 WL_ALL_BACKGROUND_THRESHOLD = 0.1568
 WL_ALL_GRAY_THRESHOLD = 0.1424
@@ -78,7 +79,9 @@ class DetectExposure:
         # 判斷光影差異是否通過
         is_amount_of_different_light = self.judge_amount_of_different_light()
         # 判斷文字亮度是否通過
-        is_word_light = self.judge_word_light(self.type)
+        #is_word_light = self.judge_word_light(self.type)
+
+        is_word_light = True
         # 判斷是否通過
         is_pass = is_amount_of_different_light and is_word_light
         return is_pass
